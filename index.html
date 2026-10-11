@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fasah Clearance Platform — Customs clearance operations on your Windows desktop</title>
+  <meta name="description" content="Fasah Clearance Platform is a Windows desktop application for managing customs clearance accounts, declarations, documents, alerts and integrations in one place.">
+  <meta name="theme-color" content="#0F766E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 215 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%230473c4' points='0%2C0 87%2C0 129%2C75 44%2C75'/%3E%3Cpolygon fill='%232fc9e3' points='87%2C0 174%2C0 215%2C75 129%2C75'/%3E%3Cpolygon fill='%231b35a5' points='44%2C75 129%2C75 170%2C150 83%2C150'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- Inline SVG sprite: logo and icons are defined once and reused with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="logo" viewBox="0 0 215 150" preserveAspectRatio="xMidYMid meet">
+        <polygon fill="#0473c4" points="0,0 87,0 129,75 44,75"/>
+        <polygon fill="#2fc9e3" points="87,0 174,0 215,75 129,75"/>
+        <polygon fill="#1b35a5" points="44,75 129,75 170,150 83,150"/>
+      </symbol>
+      <symbol id="i-win" viewBox="0 0 24 24">
+        <path fill="currentColor" stroke="none" d="M3 5.6l7.4-1v7.1H3zM11.6 4.4L21 3v8.7h-9.4zM3 12.6h7.4v7.1L3 18.7zM11.6 12.6H21V21l-9.4-1.4z"/>
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6M16 5a3.5 3.5 0 010 6.5M18 14.3c2 .8 3.5 2.8 3.5 5.7"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8zM14 3v5h5M9 14l2 2 4-4"/></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3M8 9h8M8 12h8M8 15h5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7M10 20a2 2 0 004 0"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2a2 2 0 012-2h8a2 2 0 012 2v2"/></symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 18a8 8 0 1116 0M12 18l4-5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Fasah Clearance Platform">
+        <svg class="logo" viewBox="0 0 215 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fasah Clearance Platform logo">
+          <polygon fill="#0473c4" points="0,0 87,0 129,75 44,75"/>
+          <polygon fill="#2fc9e3" points="87,0 174,0 215,75 129,75"/>
+          <polygon fill="#1b35a5" points="44,75 129,75 170,150 83,150"/>
+        </svg>
+        <span class="brand-name">Fasah <span class="brand-sub">Clearance Platform</span></span>
+      </a>
+
+      <nav id="site-nav" class="nav" aria-label="Main navigation" data-i18n-aria="nav.aria">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a class="nav-link" href="#how" data-i18n="nav.how">How it works</a></li>
+          <li><a class="nav-link" href="#security" data-i18n="nav.security">Security</a></li>
+          <li><a class="nav-link" href="#download" data-i18n="nav.download">Download</a></li>
+          <li><a class="nav-link" href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="#download" data-download>
+          <svg class="ic" aria-hidden="true"><use href="#i-win"/></svg>
+          <span data-i18n="btn.download">Download for Windows</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.aria">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" lang="ar">العربية</button>
+        </div>
+        <a class="btn btn-primary header-cta" href="#download" data-download>
+          <svg class="ic" aria-hidden="true"><use href="#i-win"/></svg>
+          <span data-i18n="btn.download">Download for Windows</span>
+        </a>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-i18n-aria="menu.aria">
+          <svg class="ic icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="ic icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 data-i18n="hero.title">Automate customs clearance operations from one desktop app</h1>
+          <p class="lead" data-i18n="hero.sub">Fasah Clearance Platform brings your broker accounts, declarations, documents, alerts and integrations for Saudi customs platforms together in one Windows application.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#download" data-download>
+              <svg class="ic" aria-hidden="true"><use href="#i-win"/></svg>
+              <span data-i18n="btn.download">Download for Windows</span>
+            </a>
+            <a class="btn btn-secondary btn-lg" href="#features" data-i18n="hero.explore">Explore features</a>
+          </div>
+          <p class="hero-meta" data-i18n="hero.meta">Windows 10 / 11 · 64-bit · v1.0.0</p>
+        </div>
+
+        <figure class="hero-visual">
+          <!-- Decorative app mockup built with HTML/CSS only -->
+          <div class="mockup" aria-hidden="true">
+            <div class="mk-sidebar">
+              <div class="mk-logo">
+                <svg class="logo-sm" viewBox="0 0 215 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fasah Clearance Platform logo">
+                  <polygon fill="#0473c4" points="0,0 87,0 129,75 44,75"/>
+                  <polygon fill="#2fc9e3" points="87,0 174,0 215,75 129,75"/>
+                  <polygon fill="#1b35a5" points="44,75 129,75 170,150 83,150"/>
+                </svg>
+              </div>
+              <div class="mk-item active"><i class="dot"></i><span class="t" data-i18n="mk.nav1">Dashboard</span></div>
+              <div class="mk-item"><i class="dot"></i><span class="t" data-i18n="mk.nav2">Accounts</span></div>
+              <div class="mk-item"><i class="dot"></i><span class="t" data-i18n="mk.nav3">Declarations</span></div>
+              <div class="mk-item"><i class="dot"></i><span class="t" data-i18n="mk.nav4">Documents</span></div>
+              <div class="mk-item"><i class="dot"></i><span class="t" data-i18n="mk.nav5">Alerts</span></div>
+              <div class="mk-item"><i class="dot"></i><span class="t" data-i18n="mk.nav6">Integrations</span></div>
+            </div>
+            <div class="mk-main">
+              <div class="mk-top">
+                <strong data-i18n="mk.nav1">Dashboard</strong>
+                <span class="mk-search"></span>
+                <span class="mk-avatar"></span>
+              </div>
+              <div class="mk-kpis">
+                <div class="mk-kpi"><b>12</b><span data-i18n="mk.k1">Active declarations</span></div>
+                <div class="mk-kpi"><b>4</b><span data-i18n="mk.k2">Under inspection</span></div>
+                <div class="mk-kpi"><b>27</b><span data-i18n="mk.k3">Cleared</span></div>
+                <div class="mk-kpi"><b>2</b><span data-i18n="mk.k4">Open objections</span></div>
+              </div>
+              <div class="mk-lower">
+                <div class="mk-table">
+                  <div class="mk-row mk-head"><span data-i18n="mk.th1">Declaration</span><span data-i18n="mk.th2">Port</span><span data-i18n="mk.th3">Status</span></div>
+                  <div class="mk-row"><span>D-1042</span><span data-i18n="mk.p1">Jeddah</span><span class="badge badge-green" data-i18n="mk.s1">Cleared</span></div>
+                  <div class="mk-row"><span>D-1041</span><span data-i18n="mk.p2">Dammam</span><span class="badge badge-gold" data-i18n="mk.s2">Under inspection</span></div>
+                  <div class="mk-row"><span>D-1039</span><span data-i18n="mk.p3">Riyadh</span><span class="badge badge-gold" data-i18n="mk.s3">Submitted</span></div>
+                  <div class="mk-row"><span>D-1036</span><span data-i18n="mk.p1">Jeddah</span><span class="badge badge-green" data-i18n="mk.s1">Cleared</span></div>
+                </div>
+                <div class="mk-rate">
+                  <strong data-i18n="mk.rate">API rate limit</strong>
+                  <div class="mk-bar"><i></i></div>
+                  <span data-i18n="mk.rate2">Retry-After respected</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="mk-caption" data-i18n="mk.caption">Illustrative interface</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust" aria-label="Highlights">
+      <div class="container">
+        <ul class="trust-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="trust.1">Encrypted credential vault</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span data-i18n="trust.2">Runs locally on your PC</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="trust.3">No admin rights required</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-win"/></svg><span data-i18n="trust.4">Windows 10 / 11</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="f.title">Everything for clearance, in one place</h2>
+          <p data-i18n="f.sub">Six modules that cover the daily work of a customs broker.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <h3 data-i18n="f1.t">Accounts &amp; Security</h3>
+            <ul class="checks">
+              <li data-i18n="f1.b1">Multiple broker accounts in one place</li>
+              <li data-i18n="f1.b2">Credentials encrypted with Windows DPAPI and AES-256-GCM</li>
+              <li data-i18n="f1.b3">Per-account proxy settings</li>
+              <li data-i18n="f1.b4">Session handling with CAPTCHA and 2FA OTP prompts when the platform asks for them</li>
+            </ul>
+          </article>
+
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg></span>
+            <h3 data-i18n="f2.t">Customs Declarations</h3>
+            <ul class="checks">
+              <li data-i18n="f2.b1">Bayan declaration lifecycle: Draft, Submitted, Manifest Linked, Under Inspection, Cleared</li>
+              <li data-i18n="f2.b2">Green, yellow and red lane indicators</li>
+              <li data-i18n="f2.b3">Customs objections with tracking</li>
+              <li data-i18n="f2.b4">Port inspection appointment slots</li>
+            </ul>
+          </article>
+
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-scan"/></svg></span>
+            <h3 data-i18n="f3.t">Documents &amp; OCR</h3>
+            <ul class="checks">
+              <li data-i18n="f3.b1">Upload commercial invoices, bills of lading, SABER certificates, certificates of origin and packing lists</li>
+              <li data-i18n="f3.b2">OCR extraction for Arabic and English documents</li>
+              <li data-i18n="f3.b3">Extracted data preview linked to declarations</li>
+            </ul>
+          </article>
+
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></span>
+            <h3 data-i18n="f4.t">Tracking &amp; Alerts</h3>
+            <ul class="checks">
+              <li data-i18n="f4.b1">Clearance lane monitor</li>
+              <li data-i18n="f4.b2">Alert channels: Telegram, WhatsApp, SMS and Email</li>
+              <li data-i18n="f4.b3">Delivery log</li>
+              <li data-i18n="f4.b4">Background monitoring</li>
+            </ul>
+          </article>
+
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-network"/></svg></span>
+            <h3 data-i18n="f5.t">API &amp; ERP Integrations</h3>
+            <ul class="checks">
+              <li data-i18n="f5.b1">Gateway token management and renewal</li>
+              <li data-i18n="f5.b2">Connectors for SAP S/4HANA, Odoo and a custom WMS webhook</li>
+              <li data-i18n="f5.b3">Smart rate limiting with Retry-After handling, exponential backoff and jitter</li>
+            </ul>
+          </article>
+
+          <article class="card feature reveal">
+            <span class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-calc"/></svg></span>
+            <h3 data-i18n="f6.t">Customs Tools</h3>
+            <ul class="checks">
+              <li data-i18n="f6.b1">Landed-cost calculator with CIF valuation and duty brackets</li>
+              <li data-i18n="f6.b2">15% VAT and multi-currency support</li>
+              <li data-i18n="f6.b3">HS code fuzzy search</li>
+              <li data-i18n="f6.b4">SABER / SASO and SFDA requirement tags</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="compact-grid">
+          <article class="card compact reveal">
+            <span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg></span>
+            <div><h3 data-i18n="c1.t">Recycle Bin</h3><p data-i18n="c1.d">Restore anything you delete.</p></div>
+          </article>
+          <article class="card compact reveal">
+            <span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></span>
+            <div><h3 data-i18n="c2.t">Activity logs</h3><p data-i18n="c2.d">Filterable audit trail with JSON export.</p></div>
+          </article>
+          <article class="card compact reveal">
+            <span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <div><h3 data-i18n="c3.t">Bilingual-ready interface</h3><p data-i18n="c3.d">Built to work in English and Arabic.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section section-alt" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="how.title">How it works</h2>
+          <p data-i18n="how.sub">Three steps from download to daily use.</p>
+        </div>
+        <ol class="steps">
+          <li class="card step reveal">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3 data-i18n="how.1t">Install</h3>
+            <p data-i18n="how.1d">Download the installer and run it. No administrator rights are needed.</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3 data-i18n="how.2t">Link your broker accounts securely</h3>
+            <p data-i18n="how.2d">Add your accounts. Credentials are encrypted on your PC.</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3 data-i18n="how.3t">Monitor and manage clearance</h3>
+            <p data-i18n="how.3d">Follow declarations, documents and alerts from one dashboard.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SECURITY ============ -->
+    <section class="section" id="security">
+      <div class="container security-grid">
+        <div class="reveal">
+          <h2 data-i18n="sec.title">Designed to keep your data on your PC</h2>
+          <p class="lead-sm" data-i18n="sec.p1">Fasah Clearance Platform follows a local-first design. Your accounts, declarations and documents are handled on your own computer.</p>
+          <p class="lead-sm" data-i18n="sec.p2">Credentials are protected with Windows DPAPI and AES-256-GCM encryption, and the app is designed not to send your data to third parties by itself.</p>
+          <p class="fine" data-i18n="sec.note">Alert channels you turn on, such as Telegram or Email, deliver messages through those services.</p>
+        </div>
+        <ul class="card sec-list reveal">
+          <li><span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></span><div><h3 data-i18n="sec.l1t">Encrypted credential vault</h3><p data-i18n="sec.l1d">DPAPI and AES-256-GCM protect stored credentials.</p></div></li>
+          <li><span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg></span><div><h3 data-i18n="sec.l2t">Local-first design</h3><p data-i18n="sec.l2d">The application runs on your PC, not on a hosted service.</p></div></li>
+          <li><span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h3 data-i18n="sec.l3t">Privacy by design</h3><p data-i18n="sec.l3d">No tracking or third-party data sharing is built into the app.</p></div></li>
+          <li><span class="icon-box sm"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><div><h3 data-i18n="sec.l4t">Rate-limit protection</h3><p data-i18n="sec.l4d">Retry-After handling, exponential backoff and jitter help keep requests within platform limits.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section section-alt" id="download">
+      <div class="container">
+        <div class="card download-card reveal">
+          <div class="dl-main">
+            <svg class="logo-lg" viewBox="0 0 215 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fasah Clearance Platform logo">
+              <polygon fill="#0473c4" points="0,0 87,0 129,75 44,75"/>
+              <polygon fill="#2fc9e3" points="87,0 174,0 215,75 129,75"/>
+              <polygon fill="#1b35a5" points="44,75 129,75 170,150 83,150"/>
+            </svg>
+            <h2 data-i18n="dl.title">Download Fasah Clearance Platform</h2>
+            <p class="lead-sm" data-i18n="dl.sub">Get the Windows installer and start in a few minutes.</p>
+            <a class="btn btn-primary btn-lg" href="#download" data-download>
+              <svg class="ic" aria-hidden="true"><use href="#i-win"/></svg>
+              <span data-i18n="btn.download">Download for Windows</span>
+            </a>
+            <dl class="dl-meta">
+              <div><dt data-i18n="dl.version">Version</dt><dd><bdi data-config="VERSION">1.0.0</bdi></dd></div>
+              <div><dt data-i18n="dl.size">File size</dt><dd><bdi data-config="FILE_SIZE">XX MB</bdi></dd></div>
+              <div><dt data-i18n="dl.date">Release date</dt><dd><bdi data-config="RELEASE_DATE">Month YYYY</bdi></dd></div>
+            </dl>
+          </div>
+          <div class="dl-side">
+            <h3 data-i18n="dl.reqtitle">System requirements</h3>
+            <ul class="checks">
+              <li data-i18n="dl.r1">Windows 10 or 11, 64-bit</li>
+              <li data-i18n="dl.r2">About 500 MB of free disk space</li>
+              <li data-i18n="dl.r3">Internet connection</li>
+              <li data-i18n="dl.r4">No administrator rights needed</li>
+            </ul>
+            <p class="note" data-i18n="dl.note">Windows SmartScreen may show a warning for new or unsigned apps. Choose "More info", then "Run anyway" if you downloaded this file from this page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head reveal">
+          <h2 data-i18n="faq.title">Frequently asked questions</h2>
+        </div>
+        <div class="faq reveal">
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="faq.q1">What is Fasah Clearance Platform?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden><p data-i18n="faq.a1">A Windows desktop application that helps customs brokers manage accounts, declarations, documents, alerts and integrations for Saudi customs platforms from one place.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="faq.q2">Which Windows versions are supported?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden><p data-i18n="faq.a2">Windows 10 and Windows 11, 64-bit.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="faq.q3">Is my data stored locally?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden><p data-i18n="faq.a3">The app follows a local-first design, so your data is kept on your PC. Credentials are encrypted with Windows DPAPI and AES-256-GCM.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="faq.q4">Do I need administrator rights?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden><p data-i18n="faq.a4">No. The app is designed to install and run without administrator rights.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="faq.q5">How do I update?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden><p data-i18n="faq.a5">Download the newest installer from this page and run it. Compare the version shown here with the one you have installed.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="faq.q6">How do I get support?</span><svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6" hidden><p><span data-i18n="faq.a6">Send us an email, describe the issue and include your app version:</span> <a href="mailto:support@example.com" data-support>support@example.com</a></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Fasah Clearance Platform">
+            <svg class="logo" viewBox="0 0 215 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fasah Clearance Platform logo">
+              <polygon fill="#0473c4" points="0,0 87,0 129,75 44,75"/>
+              <polygon fill="#2fc9e3" points="87,0 174,0 215,75 129,75"/>
+              <polygon fill="#1b35a5" points="44,75 129,75 170,150 83,150"/>
+            </svg>
+            <span class="brand-name">Fasah <span class="brand-sub">Clearance Platform</span></span>
+          </a>
+          <p data-i18n="foot.desc">A Windows desktop application for managing customs clearance operations.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer" data-i18n-aria="foot.aria">
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#how" data-i18n="nav.how">How it works</a>
+          <a href="#security" data-i18n="nav.security">Security</a>
+          <a href="#download" data-i18n="nav.download">Download</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </nav>
+      </div>
+      <div class="footer-contact">
+        <span class="footer-contact-title" data-i18n="foot.contact">Direct Support</span>
+        <div class="footer-contact-btns">
+          <a class="contact-btn contact-btn-wa" href="https://wa.me/201286669272" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-whatsapp>
+            <svg class="contact-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="contact.whatsapp">WhatsApp</span>
+          </a>
+          <a class="contact-btn contact-btn-tg" href="https://t.me/iqrouter" target="_blank" rel="noopener noreferrer" aria-label="Telegram" data-telegram>
+            <svg class="contact-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.718-1.492 6.27-2.164 9.87-.284 1.523-.846 1.83-1.385 1.88-.175.016-.353.024-.53.024-1.01 0-1.722-.533-2.702-1.176l-4.22-2.772a.81.81 0 01-.132-.12c-.225-.26-.118-.59.13-.807l5.856-5.286c.26-.235-.05-.365-.36-.16l-7.393 4.656-3.136-.98c-.68-.212-.693-.68.142-1.007l12.26-4.724c.568-.21 1.066.136.882 1.004z"/></svg>
+            <span data-i18n="contact.telegram">Telegram</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copy" data-i18n="foot.copy">© 2025 Fasah Clearance Platform</p>
+        <p class="disclaimer" data-i18n="foot.disc">Fasah Clearance Platform is an independent desktop application. It is not affiliated with, endorsed by, or sponsored by the Zakat, Tax and Customs Authority (ZATCA) or any government entity. Product names are used for identification only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact Buttons (Bottom) -->
+  <aside class="floating-contact" aria-label="Quick Support">
+    <a class="float-btn float-btn-wa" href="https://wa.me/201286669272" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-whatsapp>
+      <svg class="contact-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="float-btn-text" data-i18n="contact.whatsapp">WhatsApp</span>
+    </a>
+    <a class="float-btn float-btn-tg" href="https://t.me/iqrouter" target="_blank" rel="noopener noreferrer" aria-label="Telegram" data-telegram>
+      <svg class="contact-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.718-1.492 6.27-2.164 9.87-.284 1.523-.846 1.83-1.385 1.88-.175.016-.353.024-.53.024-1.01 0-1.722-.533-2.702-1.176l-4.22-2.772a.81.81 0 01-.132-.12c-.225-.26-.118-.59.13-.807l5.856-5.286c.26-.235-.05-.365-.36-.16l-7.393 4.656-3.136-.98c-.68-.212-.693-.68.142-1.007l12.26-4.724c.568-.21 1.066.136.882 1.004z"/></svg>
+      <span class="float-btn-text" data-i18n="contact.telegram">Telegram</span>
+    </a>
+  </aside>
+
+  <!-- Sticky download bar (phones only) -->
+  <div class="sticky-bar">
+    <span class="sticky-meta" data-i18n="bar.meta">v1.0.0 · XX MB</span>
+    <a class="btn btn-primary" href="#download" data-download>
+      <svg class="ic" aria-hidden="true"><use href="#i-win"/></svg>
+      <span data-i18n="btn.download">Download for Windows</span>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
