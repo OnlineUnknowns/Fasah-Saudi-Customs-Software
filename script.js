@@ -9,8 +9,8 @@ const CONFIG = {
   DOWNLOAD_URL: "https://www.mediafire.com/file/pwj8mlu00hywcit/Fasah_Setup_1.0.0.exe.blockmap/file",
   VERSION: "1.0.0",
   FILE_SIZE: "XX MB",
-  RELEASE_DATE: "Month YYYY",
-  SUPPORT_EMAIL: "support@example.com",
+  RELEASE_DATE: "mar 2020",
+  SUPPORT_EMAIL: "rootuserlocal@gmail.com",
   WHATSAPP_URL: "https://wa.me/201286669272",
   TELEGRAM_URL: "https://t.me/iqrouter"
 };
