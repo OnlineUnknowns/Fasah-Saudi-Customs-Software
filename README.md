@@ -1,20 +1,14 @@
 <div align="center">
 
-<img width="100%" alt="Fasah Enterprise" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1120,50:0F766E,100:D97706&height=250&section=header&text=FASAH%20ENTERPRISE&fontSize=58&fontColor=FFFFFF&fontAlignY=38&animation=fadeIn&desc=Autonomous%20Saudi%20Customs%20Automation%20%26%20Clearance%20Platform&descSize=17&descAlignY=60"/>
+# 🛡️ FASAH ENTERPRISE
 
-<img alt="Typing" src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=18&duration=3000&pause=1200&color=2DD4BF&center=true&vCenter=true&width=760&height=40&lines=v2.3.0+Stable+%E2%80%A2+Enterprise+Desktop+Suite;ZATCA+%26+SASO+Compliant;Encrypted+Vault+%E2%80%A2+Bayan+Engine+%E2%80%A2+OCR+%E2%80%A2+ERP+Sync"/>
+### Autonomous Saudi Customs Automation & Clearance Platform
 
-<br/>
+`v2.3.0 Stable` &nbsp;•&nbsp; `Enterprise Desktop Suite` &nbsp;•&nbsp; `ZATCA & SASO Compliant`
 
-[![Version](https://img.shields.io/badge/version-2.3.0-0F766E?style=for-the-badge)](#)
-[![Electron](https://img.shields.io/badge/Electron-34.2.0-47848F?style=for-the-badge&logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Zustand](https://img.shields.io/badge/State-Zustand-764ABC?style=for-the-badge)](https://github.com/pmndrs/zustand)
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Security](https://img.shields.io/badge/Security-DPAPI_%2B_AES--256--GCM-0F766E?style=for-the-badge&logo=windows11&logoColor=white)](#-security-model)
-[![Platform](https://img.shields.io/badge/Platform-Windows_10%2F11_x64-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-installation--development)
-[![License](https://img.shields.io/badge/License-Proprietary-D97706?style=for-the-badge)](#-license)
+| Version | Electron | React | Vite | State | Styling | Security | Platform | License |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `2.3.0` | `34.2.0` | `19.0.0` | `6.2.0` | `Zustand` | `Tailwind CSS` | `DPAPI + AES-256-GCM` | `Windows 10/11 x64` | `Proprietary` |
 
 **A high-performance, enterprise-grade desktop platform that automates the Saudi _Fasah_ (فسح) customs workflow for
 Customs Brokers, Freight Forwarders, Shipping Lines, and E-Commerce Importers.**
@@ -388,6 +382,5 @@ Specify your license here (e.g. `Proprietary — All rights reserved` or `MIT`).
 **Fasah Enterprise** • Developed with excellence for Saudi logistics professionals.
 
 
-<img width="100%" alt="footer" src="https://capsule-render.vercel.app/api?type=waving&color=0:D97706,50:0F766E,100:0B1120&height=120&section=footer"/>
 
 </div>
