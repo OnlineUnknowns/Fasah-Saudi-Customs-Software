@@ -6,7 +6,7 @@
    - SUPPORT_EMAIL: used for the support mailto link in the FAQ.
    ========================================================= */
 const CONFIG = {
-  DOWNLOAD_URL: "https://github.com/YOUR-USER/YOUR-REPO/releases/latest/download/FasahClearance-Setup.exe",
+  DOWNLOAD_URL: "https://www.mediafire.com/file/pwj8mlu00hywcit/Fasah_Setup_1.0.0.exe.blockmap/file",
   VERSION: "1.0.0",
   FILE_SIZE: "XX MB",
   RELEASE_DATE: "Month YYYY",
