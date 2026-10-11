@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ FASAH ENTERPRISE
+<a href="#"><img alt="FASAH BOT" src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=54&duration=3500&pause=1500&color=2DD4BF&center=true&vCenter=true&repeat=true&width=820&height=100&lines=FASAH+BOT;%F0%9F%9B%A1%EF%B8%8F+FASAH+BOT;FASAH+BOT"/></a>
 
 ### Autonomous Saudi Customs Automation & Clearance Platform
 
@@ -275,8 +275,8 @@ The app ships as a branded 5-step NSIS setup wizard with feature previews and a 
 
 ```bash
 # 1. Clone
-git clone https://github.com/your-username/fasah-enterprise.git
-cd fasah-enterprise
+git clone https://github.com/OnlineUnknowns/Fasah-Saudi-Customs-Platform.git
+cd Fasah-Saudi-Customs-Platform
 
 # 2. Install dependencies
 npm install
